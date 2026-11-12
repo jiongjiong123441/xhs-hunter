@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "捡漏雷达 · 小红书二手监控",
+  "version": "1.0.0",
+  "description": "按关键词/地区/预算监控小红书二手与免费送帖子，支持图片价格识别并推送。",
+  "permissions": ["tabs", "scripting", "storage", "unlimitedStorage", "notifications"],
+  "host_permissions": [
+    "https://www.xiaohongshu.com/*",
+    "https://*.xhscdn.com/*",
+    "http://*.xhscdn.com/*",
+    "https://ntfy.sh/*",
+    "https://api.day.app/*",
+    "https://api.telegram.org/*",
+    "https://sctapi.ftqq.com/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "打开捡漏雷达", "default_icon": "icon.png" },
+  "icons": { "128": "icon.png" },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}

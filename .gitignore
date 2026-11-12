@@ -1,0 +1,8 @@
+# 临时 / 预览文件
+_*.html
+_*.js
+_*.png
+node_modules/
+.DS_Store
+Thumbs.db
+*.log

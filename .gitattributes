@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.png binary
+*.gz binary
+# 第三方 OCR 库，不参与 diff / 语言统计
+lib/** -diff linguist-vendored

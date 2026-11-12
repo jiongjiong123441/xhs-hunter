@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>捡漏雷达</title>
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+<header class="bar">
+  <div class="mark">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 6h13l11 11-11 11L4 17z" fill="var(--sticker)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/><circle cx="10" cy="12" r="2.4" fill="var(--bg)" stroke="var(--ink)" stroke-width="1.6"/></svg>
+    <span>捡漏雷达</span>
+  </div>
+  <div class="state" id="state"><span class="dot"></span><span id="statusText">未运行</span></div>
+  <dl class="stats">
+    <div><dt>轮次</dt><dd id="stRounds">0</dd></div>
+    <div><dt>已看帖子</dt><dd id="stScanned">0</dd></div>
+    <div><dt>本次捡到</dt><dd id="stMatched">0</dd></div>
+  </dl>
+  <div class="run">
+    <button id="btnStart" class="go">开始监控</button>
+    <button id="btnStop" class="stop" hidden>停止监控</button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="hits" aria-labelledby="hitsTitle">
+    <section id="threads" class="threads" hidden aria-label="每个线程在做什么">
+      <div class="threads-head"><h2>正在搜</h2><span id="roundInfo" class="round-info"></span></div>
+      <ol id="threadList" class="thread-list"></ol>
+    </section>
+
+    <div class="hits-head">
+      <h1 id="hitsTitle">捡到的 <span id="hitCount" class="count"></span></h1>
+      <div class="filter" role="group" aria-label="筛选">
+        <button data-f="all" aria-pressed="true">全部</button>
+        <button data-f="price" aria-pressed="false">预算内</button>
+        <button data-f="free" aria-pressed="false">免费送</button>
+        <button data-f="unknown" aria-pressed="false">价格未知</button>
+      </div>
+      <button id="btnClear" class="text">清空列表</button>
+    </div>
+    <div id="matches" class="wall" aria-live="polite"></div>
+
+    <details class="log" id="logBox">
+      <summary><span class="log-title">运行日志</span><span id="logLast" class="log-last"></span></summary>
+      <div id="log" class="log-body"></div>
+      <button id="btnResetSeen" class="text">重置已读记录（下一轮重新检查所有帖子）</button>
+    </details>
+  </section>
+
+  <aside class="side">
+    <section class="block">
+      <div class="block-head"><h2>在盯的东西</h2><button id="btnAddTask" class="text">新增</button></div>
+      <div id="tasks" class="tasks"></div>
+    </section>
+
+    <details class="block fold">
+      <summary><h2>运行设置</h2></summary>
+      <div id="settings" class="form"></div>
+    </details>
+
+    <details class="block fold">
+      <summary><h2>推送到手机</h2></summary>
+      <div id="push" class="form"></div>
+      <button id="btnTestPush" class="ghost">发一条测试推送</button>
+    </details>
+
+    <div class="savebar">
+      <span id="saveMsg" class="save-msg"></span>
+      <button id="btnSave" class="ghost" disabled>保存设置</button>
+    </div>
+  </aside>
+</main>
+
+<template id="taskTpl">
+  <details class="task">
+    <summary>
+      <label class="switch" title="启用/暂停"><input type="checkbox" data-k="enabled"><span></span></label>
+      <span class="task-name"></span>
+      <span class="task-sum"></span>
+    </summary>
+    <div class="form">
+      <label>任务名<input data-k="name"></label>
+      <label>搜索词<small>逗号分隔，每个词单独搜一次</small><input data-k="queries" data-list placeholder="二手显示器, 出 显示器"></label>
+      <label>地区<small>匹配 IP 属地或正文，留空表示不限</small><input data-k="regions" data-list placeholder="曼彻斯特, Manchester"></label>
+      <div class="pair">
+        <label>最低价<input type="number" data-k="min" min="0"></label>
+        <label>最高价<input type="number" data-k="max" min="0"></label>
+      </div>
+      <label>物品关键词<small>标题、正文或话题标签里要提到其中一个。留空则从搜索词自动取（“二手电脑”取“电脑”），建议补上同义词</small><input data-k="mustInclude" data-list placeholder="电脑, 笔记本, 游戏本, 主机, MacBook"></label>
+      <label>排除词<input data-k="exclude" data-list placeholder="坏, 维修, 配件"></label>
+      <label>收藏到专辑<small>留空则用「运行设置」里的专辑</small><input data-k="board" placeholder="电脑捡漏"></label>
+      <label class="chk"><input type="checkbox" data-k="includeFree">免费送也算</label>
+      <label class="chk"><input type="checkbox" data-k="requireSecondhand">必须像二手帖</label>
+      <button class="text danger del">删除这个任务</button>
+    </div>
+  </details>
+</template>
+
+<script src="lib/tesseract.min.js"></script>
+<script src="price.js"></script>
+<script src="engine.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>
