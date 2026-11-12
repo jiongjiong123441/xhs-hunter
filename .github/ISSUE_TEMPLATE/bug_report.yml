@@ -1,0 +1,114 @@
+name: 问题反馈（Bug report）
+description: 价格认错、该推的没推、搜不到、收藏失败、界面出错……
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        谢谢反馈！信息越具体，越快能修好。
+        **贴截图或日志前，请把你的小红书昵称、头像、手机推送的 key / 主题名打码。**
+
+  - type: checkboxes
+    id: precheck
+    attributes:
+      label: 提交前确认
+      options:
+        - label: 我用的是[最新版](https://github.com/jiongjiong123441/xhs-hunter/releases/tag/latest)，问题仍然存在
+          required: true
+        - label: 我搜过已有的 issue，没有人报过同样的问题
+          required: true
+        - label: 截图和日志里的个人信息已经打码
+          required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 问题类型
+      options:
+        - 价格认错 / 没认出价格
+        - 该推送的没推送，或不该推送的推送了（过滤判断不对）
+        - 搜不到东西 / 日志里一直是「0 条结果」或「读取失败」
+        - 自动收藏或收藏到专辑失败
+        - 手机推送收不到
+        - 验证码、暂停、后台标签页的问题
+        - 控制台界面显示不对
+        - 其他
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: 扩展版本
+      description: 在 chrome://extensions 里这个扩展名字下面能看到
+      placeholder: 例如 1.0.0 (6be3bb5)
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: 浏览器和系统
+      placeholder: 例如 Chrome 142 / Windows 11
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: 发生了什么
+      description: 你看到的结果，比如「控制台显示 ¥42，实际是 $1300」「这条帖子明明是提问帖却推送了」
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 应该是什么样
+      placeholder: 例如：应该识别成 A$1300，按我的预算 A$1000 应该跳过
+    validations:
+      required: true
+
+  - type: textarea
+    id: post
+    attributes:
+      label: 帖子内容（价格和过滤问题必填）
+      description: |
+        把帖子的**标题、正文、话题标签**原样复制过来；价格写在评论或图片里的，也贴上那条评论或图片。
+        这些文字会被加进自动测试，防止以后再错。帖子链接可以附上，但链接会过期，文字更可靠。
+      placeholder: |
+        标题：墨尔本出omen游戏本
+        正文：……
+        💰 1199🔪
+        #墨尔本闲置 #电脑
+      render: text
+
+  - type: textarea
+    id: log
+    attributes:
+      label: 相关日志
+      description: 控制台底部「运行日志」展开后，复制和这条帖子或这个问题有关的几行
+      placeholder: "[线程1] 跳过：超预算(1300AUD)，毕业出闲置电脑"
+      render: text
+
+  - type: textarea
+    id: settings
+    attributes:
+      label: 相关设置
+      description: 价格问题请写上三个币种设置；过滤问题请写上任务的搜索词、地区、预算和物品关键词
+      placeholder: |
+        预算币种：AUD　没写币种的数字按：AUD　"$"和"刀"指：AUD
+        任务：二手电脑　搜索词：墨尔本二手电脑　地区：墨尔本　最高价：1000　物品关键词：电脑, 笔记本
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 截图
+      description: 可以直接把图片拖进来（记得打码）
+
+  - type: textarea
+    id: more
+    attributes:
+      label: 其他补充
+      description: 怎么复现、偶尔出现还是每次都出现、最近有没有改过设置等

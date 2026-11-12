@@ -111,6 +111,12 @@ scripts/pack.sh    检查 + 测试 + 打包成 zip，产物在 dist/
 
 每次推送到 `main`，GitHub Actions 会跑语法检查和 `node test.js`，通过后打包并刷新 [最新版](https://github.com/jiongjiong123441/xhs-hunter/releases/tag/latest)。推送 `v1.2.3` 这样的标签会另外发一个正式版本。
 
+## 反馈和贡献
+
+- 价格认错、该推的没推、搜不到……请用 [问题反馈](https://github.com/jiongjiong123441/xhs-hunter/issues/new?template=bug_report.yml)，按表格把帖子原文和日志贴上。
+- 想要新功能，用 [功能建议](https://github.com/jiongjiong123441/xhs-hunter/issues/new?template=feature_request.yml)。
+- `main` 分支受保护，不能直接推送，也不能强推或删除。改动请从新分支提 Pull Request，自动检查（语法 + `node test.js`）通过后才能合并。修价格识别时，请把出错的帖子文字加进 `test.js`。
+
 ## 声明
 
 这是个人学习和自用的工具，跟小红书官方没有任何关系。它只是在你自己登录的浏览器里，用正常的速度替你翻页面。请遵守小红书的用户协议，不要调高频率去大量抓取，也不要把抓到的内容用于商业用途。因为使用本工具造成的账号限制等后果，需要使用者自己承担。

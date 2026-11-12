@@ -1,0 +1,54 @@
+name: 功能建议（Feature request）
+description: 想让捡漏雷达多做点什么，或者换种做法
+title: "[功能] "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: 先说清楚你遇到的情况，再说你想要的做法。情况讲清楚了，往往能找到更好的解决办法。
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 跟哪部分有关
+      options:
+        - 搜索和多线程
+        - 帖子过滤（不相干、已出、地区、物品关键词）
+        - 价格识别（正文、评论、图片 OCR、币种）
+        - 推送到手机
+        - 自动收藏 / 专辑
+        - 控制台界面
+        - 安装、更新、打包
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 遇到了什么情况
+      description: 现在哪里不方便、漏了什么、多做了什么？有具体帖子或截图更好（记得打码）
+      placeholder: 例如：卖家常在第二张图里写价格，但我设置了每帖只识别 1 张图，经常漏掉
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 希望怎么做
+      placeholder: 例如：如果正文提到“价格看图”，就多识别几张图
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 现在是怎么凑合的 / 想过的其他办法
+      description: 可选
+
+  - type: checkboxes
+    id: help
+    attributes:
+      label: 参与
+      options:
+        - label: 我愿意自己提交 Pull Request 来实现

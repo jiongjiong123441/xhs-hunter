@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
     tags: ['v*']
+  # 提交到 main 的 Pull Request 也要先通过检查（分支规则要求这一步通过才能合并）
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
