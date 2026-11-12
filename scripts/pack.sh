@@ -16,7 +16,7 @@ tail -1 /tmp/xhs-test.log
 echo "== 打包"
 VERSION=$(node -p "require('./manifest.json').version")
 rm -rf dist && mkdir -p dist/xhs-hunter
-cp -r manifest.json background.js dashboard.html dashboard.css dashboard.js engine.js price.js icon.png lib README.md dist/xhs-hunter/
+cp -r manifest.json background.js dashboard.html dashboard.css dashboard.js engine.js price.js icon.png lib README.md LICENSE dist/xhs-hunter/
 # 在 Chrome 扩展页显示“1.0.0 (提交号)”，方便分辨是哪一版
 SHA="$SHA" node -e "
 const fs=require('fs');const f='dist/xhs-hunter/manifest.json';

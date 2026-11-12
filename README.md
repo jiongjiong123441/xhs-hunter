@@ -115,6 +115,10 @@ scripts/pack.sh    检查 + 测试 + 打包成 zip，产物在 dist/
 
 这是个人学习和自用的工具，跟小红书官方没有任何关系。它只是在你自己登录的浏览器里，用正常的速度替你翻页面。请遵守小红书的用户协议，不要调高频率去大量抓取，也不要把抓到的内容用于商业用途。因为使用本工具造成的账号限制等后果，需要使用者自己承担。
 
+## 许可
+
+本项目代码以 [MIT 许可证](LICENSE) 发布：可以自由使用、修改和再发布，保留版权声明即可。
+
 ## 第三方
 
 `lib/` 里是 [tesseract.js](https://github.com/naptha/tesseract.js) 5.1.1、tesseract.js-core 和 tessdata 中英文模型，均为 Apache-2.0 许可，原样附带（`lib/worker-quiet.js` 除外，那是本项目的包装）。
