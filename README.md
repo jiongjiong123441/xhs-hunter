@@ -4,8 +4,8 @@
 
 为在海外的留学生收二手而做：认得 `💰 2199`、`1199🔪`、`A$1,300`、`3K5` 这类写法，会自动换算成你的预算币种。
 
-[![自动打包](https://github.com/jiongjiong123441/xhs-hunter/actions/workflows/build.yml/badge.svg)](https://github.com/jiongjiong123441/xhs-hunter/actions/workflows/build.yml)
-[下载最新版](https://github.com/jiongjiong123441/xhs-hunter/releases/download/latest/xhs-hunter-latest.zip)
+[![自动打包](https://github.com/ydnw6/xhs-hunter/actions/workflows/build.yml/badge.svg)](https://github.com/ydnw6/xhs-hunter/actions/workflows/build.yml)
+[下载最新版](https://github.com/ydnw6/xhs-hunter/releases/download/latest/xhs-hunter-latest.zip)
 
 ![控制台：上方是每个线程在搜什么，下面是捡到的帖子，右边是要盯的东西](docs/dashboard.png)
 
@@ -21,7 +21,7 @@
 
 ## 安装
 
-1. [下载 `xhs-hunter-latest.zip`](https://github.com/jiongjiong123441/xhs-hunter/releases/download/latest/xhs-hunter-latest.zip)，解压。
+1. [下载 `xhs-hunter-latest.zip`](https://github.com/ydnw6/xhs-hunter/releases/download/latest/xhs-hunter-latest.zip)，解压。
 2. Chrome 打开 `chrome://extensions`（Edge 是 `edge://extensions`），打开**开发者模式**。
 3. 点**加载已解压的扩展程序**，选择解压出来的 `xhs-hunter` 文件夹。
 4. 在同一个浏览器里登录小红书网页版。**建议用小号。**
@@ -109,12 +109,12 @@ scripts/pack.sh    检查 + 测试 + 打包成 zip，产物在 dist/
 
 改完代码在扩展页点「重新加载」就能用，不需要编译。
 
-每次推送到 `main`，GitHub Actions 会跑语法检查和 `node test.js`，通过后打包并刷新 [最新版](https://github.com/jiongjiong123441/xhs-hunter/releases/tag/latest)。推送 `v1.2.3` 这样的标签会另外发一个正式版本。
+每次推送到 `main`，GitHub Actions 会跑语法检查和 `node test.js`，通过后打包并刷新 [最新版](https://github.com/ydnw6/xhs-hunter/releases/tag/latest)。推送 `v1.2.3` 这样的标签会另外发一个正式版本。
 
 ## 反馈和贡献
 
-- 价格认错、该推的没推、搜不到……请用 [问题反馈](https://github.com/jiongjiong123441/xhs-hunter/issues/new?template=bug_report.yml)，按表格把帖子原文和日志贴上。
-- 想要新功能，用 [功能建议](https://github.com/jiongjiong123441/xhs-hunter/issues/new?template=feature_request.yml)。
+- 价格认错、该推的没推、搜不到……请用 [问题反馈](https://github.com/ydnw6/xhs-hunter/issues/new?template=bug_report.yml)，按表格把帖子原文和日志贴上。
+- 想要新功能，用 [功能建议](https://github.com/ydnw6/xhs-hunter/issues/new?template=feature_request.yml)。
 - `main` 分支受保护，不能直接推送，也不能强推或删除。改动请从新分支提 Pull Request，自动检查（语法 + `node test.js`）通过后才能合并。修价格识别时，请把出错的帖子文字加进 `test.js`。
 
 ## 声明
